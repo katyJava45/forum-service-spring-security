@@ -18,8 +18,9 @@ public class AuthorizationConfiguration {
 		//filtres ot chastnux k obshchim (poryadok imeet znachenie):
 		http.authorizeRequests(authorize -> authorize
 				.mvcMatchers("/account/register", "/forum/posts/**").permitAll()
-				.mvcMatchers("/account/password")
-					.access("@customWebSecurity.checkChangePasswordDate(authentication.name)")				
+//				.mvcMatchers("/account/password")
+//					.access("@customWebSecurity.checkChangePasswordDate(authentication.name)")		
+			
 				.mvcMatchers("/account/user/*/role/*").hasRole("ADMINISTRATOR")
 //				.mvcMatchers(HttpMethod.PUT, "/account/user/{login}").access("#login == principal.getUsername()")
 				.mvcMatchers(HttpMethod.PUT, "/account/user/{login}")
